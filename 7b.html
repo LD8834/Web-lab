@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1>User Information Form</h1>
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="mobile">Mobile No:</label>
+        <input type="text" id="mobile" name="mobile"><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="">Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br><br>
+
+        <label for="color">Favorite Color:</label>
+        <input type="text" id="color" name="color"><br><br>
+
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+    <br>
+    <textarea id="output" rows="5" cols="50" readonly></textarea>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var mobile = document.getElementById('mobile').value;
+            var gender = document.getElementById('gender').value;
+            var color = document.getElementById('color').value;
+            var output = document.getElementById('output');
+
+            // Validation
+            if (name === '') {
+                alert("invalid");
+                return false;
+            }
+            
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+            alert("Invalid email address");
+            return false;
+      }
+       if(mobile.length<10){  
+                    alert("Mobile no. must be 10 characters long.");  
+                    return false;  
+       }
+                var combinedInfo = `Name: ${name}\nEmail: ${email}\nMobile No: ${mobile}\nGender: ${gender}\nFavorite Color: ${color}`;
+                output.value = combinedInfo;
+            
+        }
+
+    
+    </script>
+</body>
+</html>
