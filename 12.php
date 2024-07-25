@@ -48,4 +48,4 @@
 </html>
 
 login.txt
-SampleUser1, SamplePass1
+SampleUser1,SamplePass1
