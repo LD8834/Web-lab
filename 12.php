@@ -46,3 +46,6 @@
 
 </body>
 </html>
+
+login.txt
+SampleUser1, SamplePass1
